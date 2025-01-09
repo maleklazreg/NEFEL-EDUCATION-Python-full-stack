@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    margin: 20px;
+}
+td {
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+table:hover {
+    transform: scale(1.05); 
+    background-color: #0b4e57;
+}
+.red {
+    background-color: #ff0000; 
+}
+
+.black {
+    background-color: #000000; 
+}
+
+
+td:hover {
+    transform: scale(1.2) rotate(0deg); /* Start without rotation */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: spin 1s infinite ease-in-out; /* Apply spinning animation */
+    z-index: 1;
+}
+
+@keyframes spin {
+    0% {
+        transform: scale(1.2) rotate(0deg); /* Start position */
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg); /* Halfway rotation */
+    }
+    100% {
+        transform: scale(1.2) rotate(360deg); /* Full rotation */
+    }
+}
+
+
+/* @keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+} */
