@@ -26,21 +26,21 @@ table:hover {
 
 
 td:hover {
-    transform: scale(1.2) rotate(0deg); /* Start without rotation */
+    transform: scale(1.2) rotate(0deg); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    animation: spin 1s infinite ease-in-out; /* Apply spinning animation */
+    animation: spin 1s infinite ease-in-out; 
     z-index: 1;
 }
 
 @keyframes spin {
     0% {
-        transform: scale(1.2) rotate(0deg); /* Start position */
+        transform: scale(1.2) rotate(0deg); 
     }
     50% {
-        transform: scale(1.2) rotate(180deg); /* Halfway rotation */
+        transform: scale(1.2) rotate(180deg); 
     }
     100% {
-        transform: scale(1.2) rotate(360deg); /* Full rotation */
+        transform: scale(1.2) rotate(360deg);
     }
 }
 
