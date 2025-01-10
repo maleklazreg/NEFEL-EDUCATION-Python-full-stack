@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div>
-        <h1>Counter</h1>
-        <p>{{ visits }} marra!</p>
-    </div>
+    <h1>Counter</h1>
+    <p>You have visited this site {{ counter }} times.</p>
+
+    <!-- Reset the counter -->
+    <a href="/destroy_session">Reset Counter</a>
+
+    <!-- NINJA BONUS: Increment by 2 -->
+    <a href="/increment_by_2">Increment by 2</a>
+
+    <!-- SENSEI BONUS: Increment by user-defined value -->
+    <form action="/increment" method="POST">
+        <label for="increment">Increment by:</label>
+        <input type="number" name="increment" min="1" required>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
