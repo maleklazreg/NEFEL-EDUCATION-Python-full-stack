@@ -3,49 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
-    <style>
-        .container {
-            max-width: 600px;
-            margin-top: 50px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/housess.css') }}">
 </head>
-<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+<body>
     <div class="container">
-        <h2 class="text-center mb-4">suibmit ur details</h2>
-        <form action="/submit" method="POST">
-            <div class="form-group">
-                <label for="user_name" class="form-label">Your name:</label>
-                <input type="text" name="user_name" class="form-control" id="user_name" required>
+        <h2 class="title">Submit Ur Details</h2>
+        <form action="/submit" method="post">
+            <div class="from_group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
             </div>
-            <div class="form-group">
-                <label for="location" class="form-label">Dojo Location:</label>
-                <select name="location" class="form-control" id="location">
-                    <option value="Us">Us</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Africa">Africa</option>
+            <div class="from_group">
+                <label for="location">Nefel-Education:</label>
+                <select name="location" id="location">
+                    <option value="Usa">Usa</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Finland">Finland</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Malta">Malta</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="language" class="form-label">Preferred Language:</label>
-                <select name="language" class="form-control" id="language">
+            <div class="from_group">
+                <label for="language">Preferred language for u:</label>
+                <select name="program_language" id="program_language">
                     <option value="Python">Python</option>
-                    <option value="Js">Js</option>
-                    <option value="NodeJs">NodeJs</option>
                     <option value="Java">Java</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="C++">C++</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Go">Go</option>
+                    <option value="Rust">Rust</option>
+                    <option value="Swift">Swift</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="C#">C#</option>                    <option value="TypeScript">TypeScript</option>
+                    <option value="Kotlin/Native">Kotlin/Native</option>
+                    <option value="Scala">Scala</option>
+                    <option value="Haskell">Haskell</option>
+                    <option value="Erlang">Erlang</option>
+                    <option value="Elixir">Elixir</option>
+                    <option value="Elm">Elm</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="comments" class="form-label">Comment (optional):</label>
-                <textarea name="comments" class="form-control" id="comments"></textarea>
+            <div class="from_group">
+                <label for="comments">Comment (optional):</label>
+                <textarea id="comments" name="comments" rows="5" cols="30"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            <div class="from_group">
+                <input class="btn" type="submit" value="Submit">
+            </div>
         </form>
     </div>
 </body>

@@ -8,7 +8,7 @@ class Player:
         self.team = player_member["team"]
 
     def whoishe(self):
-        display = f"Player: {self.name}, {self.age} y/o, pos: {self.position}, team: {self.team}"
+        display = f"ElUser {self.name}, he {self.age} y/o, Position dyalou {self.position}and he in {self.team}"
         return display
 
 kevin_data = {
