@@ -22,7 +22,7 @@ def increment_by_2():
     else:
         session['counter'] = 2
     return redirect('/')
-
+ vc 
 @app.route('/increment', methods=['POST'])
 def increment():
     increment_value = int(request.form.get('increment', 1))
