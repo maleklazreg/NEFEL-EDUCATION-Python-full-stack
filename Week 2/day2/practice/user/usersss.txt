@@ -1,0 +1,21 @@
+SELECT * FROM usersss_schema.users;
+insert into users(first_name, last_name, email) values('malek','lazreg','maleklazreg30@gmail.com');
+insert into users(first_name, last_name, email) values('metro','booming','maleklazreg30@gmail.com');
+insert into users(first_name, last_name, email) values('taha','toto','maleklazreg30@gmail.com');
+
+select * from users where email = 'maleklazreg30@gmail.com';-- Selects the user with his email
+
+
+select * from users order by id desc limit 1;-- Selects the user with the highest ID.
+
+
+update users SET last_name = 'elgrande' where id = 3;-- Updates the last name of the user with ID 3 to 'Pancakes'.
+
+
+delete from users where id = 2;-- Deletes the user with ID 2 from the database.
+
+
+select * from users order by first_name asc;-- Retrieves all users sorted by their first name in ascending order.
+
+
+select * from users order by first_name desc;-- Retrieves all users sorted by their first name in descending order.
