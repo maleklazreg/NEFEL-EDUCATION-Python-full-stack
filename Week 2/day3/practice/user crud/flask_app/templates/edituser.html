@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>edit user </h1>
+
+    <form action="/update_user/{{ user.id }}" method="POST">
+            <input type="text" name="first_name" value="{{user.first_name}}" placeholder="first name">
+            <input type="text" name="last_name" value="{{user.last_name}}" placeholder="last name">
+            <input type="text" name="email" value="{{user.email}}" placeholder="email">
+            <input type="submit" value="update">
+        </form>    
+    </ul>
+</body>
+</html>
