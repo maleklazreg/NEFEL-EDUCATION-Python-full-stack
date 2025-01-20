@@ -1,0 +1,192 @@
+/* General Reset and Box-Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #dfe9f3);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Main Title */
+h1 {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Form Styles */
+form {
+    background-color: #ffffff;
+    padding: 35px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+form:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Label Styling */
+label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #7f8c8d;
+    text-align: left;
+}
+
+/* Input Field Styling */
+input[type="email"] {
+    padding: 14px;
+    font-size: 1.1rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Button Styling */
+button.bot {
+    padding: 14px;
+    font-size: 1.1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button.bot:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Flash Message Styling */
+div.error {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+div.success {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Submitted Emails Page Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul li {
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    color: #34495e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+}
+
+a.bot {
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a.bot:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input[type="email"] {
+        font-size: 1rem;
+    }
+
+    button.bot {
+        font-size: 1rem;
+    }
+
+    a.bot {
+        font-size: 1rem;
+    }
+
+    ul li {
+        font-size: 1rem;
+        padding: 12px;
+        
+    }
+}
