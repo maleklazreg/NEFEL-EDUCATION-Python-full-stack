@@ -20,10 +20,7 @@ def submit():
         'comment': request.form['comment']
     }
     
-    # Save dojo to database
     dojo_id = Dojo.save(data)
-
-    # Pass the form data in the URL using query parameters
     return redirect(f'/result?name={data["name"]}&location={data["location"]}&language={data["language"]}&comment={data["comment"]}')
 
 
@@ -39,12 +36,7 @@ def result():
             flash("Dojo not found in the database.")
             return redirect('/')
         return render_template("result.html", dojo=dojo)
-    
-    # If no dojo_id found, directly use the form data passed via request
-    data = request.args.to_dict()  # This captures form data in the query string
+    data = request.args.to_dict() 
     if data:
-        return render_template("result.html", dojo=data)  # Pass the form data as 'dojo'
-
-    # If no data is available, redirect back to the form
-    flash("No data found. Please submit the form.")
+        return render_template("result.html", dojo=data)  
     return redirect('/')
