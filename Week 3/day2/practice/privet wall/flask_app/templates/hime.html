@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div>
+    <nav>
+        <h1>CodingDojo Wall</h1>
+        <div><h4>Welcaome, {{login_user.first_name}} {{login_user.last_name}}</h4>
+                <form action="/logout" method="post">
+                    <button type="submit">logout</button>
+                </form>
+            </div>
+    </nav>
+    <div>
+    <div>
+        <h3>Message(s) for you :</h3>
+        {%for message in messages%}
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">{{message.first_name}} {{message.last_name}} </h5>
+                <p class="card-text">{{message.message}}</p>
+                <form action="/remove/message/{{message.friend_id}}/{{message.user_id}}" method="post">
+                    <button class="btn btn-danger">remove</button>
+                </form>
+            </div>
+            <div>
+                {{message.created_at}}
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    <div>
+        <h3>Send message :</h3>
+        {%for user in liste%}
+        <form action="/send/{{user.id}}" method="post">
+        <div >
+            <h5>{{user.first_name}} {{user.last_name}} :</h5>
+            <textarea name="message" ></textarea>
+            <button> send</button>
+        </div>
+    </form>
+        {%endfor%}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+</style>
+<body>
+        <div>
+            <h1>REGISTER</h1>
+            <form action="/register/create" method="post">
+                <div>
+                    <label>First name :</label>
+                    {%for message in get_flashed_messages(category_filter=['first_name'])%}
+                    <div>{{message}}</div>
+                    {%endfor%}
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+                <div>
+                    <label>last name :</label>
+                    {%for message in get_flashed_messages(category_filter=['last_name'])%}
+                    <div>{{message}}</div>
+                    {%endfor%}
+                    <input type="text" name="last_name" class="form-control">
+                </div>
+                <div>
+                    <label> Email :</label>
+                    {%for message in get_flashed_messages(category_filter=['email'])%}
+                    <div>{{message}}</div>
+                    {%endfor%}
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div>
+                    <label>Password :</label>
+                    {%for message in get_flashed_messages(category_filter=['password'])%}
+                    <div>{{message}}</div>
+                    {%endfor%}
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <div>
+                    <label>confirm Password :</label>
+                    {%for message in get_flashed_messages(category_filter=['confirm password'])%}
+                    <div>{{message}}</div>
+                    {%endfor%}
+                    <input type="password" name="confirm_password" class="form-control">
+                </div>
+                <input type="submit" value="Resgister" class="btn btn-primary">
+            </form>
+        </div>
+        <div>
+            <h1>LOGIN</h1>
+            <form action="/login" method="post">
+                <div>
+                    <label class="form-label"> Email :</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <div>
+                    <label>Password :</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                {%for message in get_flashed_messages(category_filter=['login'])%}
+                    <div>{{message}}</div>
+                    {%endfor%}
+                <input type="submit" value="Resgister" class="btn btn-success">
+            </form>
+        </div>
+</body>
+</html>
