@@ -4,7 +4,7 @@ from flask_app import app
 from flask import redirect,render_template,request # type: ignore
 @app.route('/books')
 def home_books():
-    return render_template("books_form.html",liste=Book.get_all_books())
+    return render_template("form_my_bokk.html",liste=Book.get_all_books())
 @app.route('/book/new',methods=["post"]) 
 def new_book():
     Book.create_new_book(request.form)
@@ -15,7 +15,7 @@ def form_book(id):
     liste=Author.new()
     book_id=id
     books=Book.all_fav_athors({"book_id":book_id})
-    return render_template("books_fav.html",liste=liste,id=id,books=books,new=new)
+    return render_template("fav_books.html",liste=liste,id=id,books=books,new=new)
 @app.route("/add/fav/<int:id>",methods=['post'])
 def add_new(id):
     print(request.form['author_id'])
