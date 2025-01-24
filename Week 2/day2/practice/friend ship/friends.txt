@@ -1,0 +1,81 @@
+-- Insert multiple users into the users table.
+INSERT INTO users (first_name, last_name) 
+VALUES ('yassin', 'hamdi'),
+       ('ahmed', 'marweni'),
+       ('yasmine', 'hamemi'),
+       ('monther', 'trablesi'),
+       ('aziz', 'selmi'),
+       ('nour', 'jbali');
+
+-- Create friendships by inserting relationships between user_id and friend_id.
+-- Example: User 1 is friends with User 2, User 4, and User 6.
+INSERT INTO friendships (user_id, friend_id) 
+VALUES (1, 2), (1, 4), (1, 6);
+
+-- Create friendships for User 2, establishing relationships with User 1, User 3, and User 5.
+INSERT INTO friendships (user_id, friend_id) 
+VALUES (2, 1), (2, 3), (2, 5);
+
+-- Create friendships for User 3, establishing relationships with User 2 and User 5.
+INSERT INTO friendships (user_id, friend_id) 
+VALUES (3, 2), (3, 5);
+
+-- Create a friendship for User 4, establishing a relationship with User 3.
+INSERT INTO friendships (user_id, friend_id) 
+VALUES (4, 3);
+
+-- Create friendships for User 5, establishing relationships with User 1 and User 6.
+INSERT INTO friendships (user_id, friend_id) 
+VALUES (5, 1), (5, 6);
+
+-- Create friendships for User 6, establishing relationships with User 2 and User 3.
+INSERT INTO friendships (user_id, friend_id) 
+VALUES (6, 2), (6, 3);
+
+-- Query 1: Display the list of all friendships.
+-- Show the first and last names of users and their friends, ordered by user ID and friend ID.
+SELECT user1.first_name AS user_first_name,
+       user1.last_name AS user_last_name,
+       user2.first_name AS friend_first_name,
+       user2.last_name AS friend_last_name
+FROM friendships 
+JOIN users user1 ON user_id = user1.id
+JOIN users user2 ON friend_id = user2.id
+ORDER BY user1.id, user2.id;
+
+-- Query 2: Display the list of all friendships where the friend is User 1.
+-- Show the first and last names of users who have User 1 as a friend, ordered by user ID and friend ID.
+SELECT user1.first_name AS user_first_name,
+       user1.last_name AS user_last_name,
+       user2.first_name AS friend_first_name,
+       user2.last_name AS friend_last_name
+FROM friendships 
+JOIN users user1 ON user_id = user1.id
+JOIN users user2 ON friend_id = user2.id
+WHERE user2.id = 1
+ORDER BY user1.id, user2.id;
+
+-- Query 3: Find the user with the most friends.
+-- Count the number of friends each user has, and display the user's ID, first and last name, and friend count.
+-- Sort the results by the number of friends in descending order and limit the output to one user.
+SELECT user1.id AS user_id,
+       user1.first_name AS user_first_name,
+       user1.last_name AS user_last_name,
+       COUNT(user2.id) AS friend_count
+FROM friendships
+JOIN users user1 ON friendships.user_id = user1.id
+JOIN users user2 ON friendships.friend_id = user2.id
+GROUP BY user1.id
+ORDER BY friend_count DESC LIMIT 1;
+
+-- Query 4: Display the list of friends for User 3.
+-- Show the first and last names of friends of User 3, ordered alphabetically by the friend's first name.
+SELECT user1.first_name AS user_first_name,
+       user1.last_name AS user_last_name,
+       user2.first_name AS friend_first_name,
+       user2.last_name AS friend_last_name
+FROM friendships 
+JOIN users user1 ON user_id = user1.id
+JOIN users user2 ON friend_id = user2.id
+WHERE user1.id = 3
+ORDER BY user2.first_name;

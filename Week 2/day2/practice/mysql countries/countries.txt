@@ -1,0 +1,54 @@
+-- Query 1: Retrieve countries where Slovene is spoken, ordered by percentage of speakers in descending order.
+SELECT countries.name, languages.language, languages.percentage
+FROM countries
+JOIN languages ON countries.id = languages.country_id
+WHERE languages.language = 'Slovene'
+ORDER BY languages.percentage DESC;
+
+-- Query 2: Count the number of cities in each country, grouped by country name, 
+-- and ordered by the number of cities in descending order.
+SELECT countries.name AS name, COUNT(cities.name) AS number_cities
+FROM countries
+JOIN cities ON countries.id = cities.country_id
+GROUP BY countries.name
+ORDER BY number_cities DESC;
+
+-- Query 3: Retrieve cities in Mexico with a population greater than 500,000, 
+-- displaying their name, population, and country ID.
+SELECT cities.name, cities.population, cities.country_id
+FROM cities
+JOIN countries ON cities.country_id = countries.id
+WHERE cities.population > 500000 AND countries.name = "Mexico";
+
+-- Query 4: Retrieve countries and languages where the language is spoken by more than 89% of the population,
+-- ordered by the percentage of speakers in descending order.
+SELECT countries.name, languages.language, languages.percentage
+FROM countries
+JOIN languages ON countries.id = languages.country_id
+WHERE languages.percentage > 89
+ORDER BY languages.percentage DESC;
+
+-- Query 5: Retrieve countries with a surface area of less than 501 and a population greater than 100,000.
+SELECT name, surface_area, population
+FROM countries
+WHERE surface_area < 501 AND population > 100000;
+
+-- Query 6: Retrieve countries with a government form of 'Constitutional Monarchy',
+-- a capital ID greater than 200, and a life expectancy greater than 75.
+SELECT name, government_form, capital, life_expectancy
+FROM countries
+WHERE government_form = 'Constitutional Monarchy' AND capital > 200 AND life_expectancy > 75;
+
+-- Query 7: Retrieve city details (name, district, population) for cities in Argentina,
+-- where the district is "Buenos Aires" and the population is greater than 500,000.
+SELECT countries.name AS Country_Name, cities.name AS City_Name, cities.district, cities.population
+FROM countries
+JOIN cities ON countries.id = cities.country_id
+WHERE countries.name = 'Argentina' AND cities.district = "Buenos Aires " AND cities.population > 500000;
+
+-- Query 8: Count the number of countries in each region, grouped by region, 
+-- and ordered by the count of countries in descending order.
+SELECT region, COUNT(*) AS countries
+FROM countries
+GROUP BY region
+ORDER BY countries DESC;
